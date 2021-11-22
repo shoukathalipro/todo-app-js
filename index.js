@@ -1,86 +1,26 @@
 var taskList = [];
-// var itemList = [];
+
+function showPopUp () {
+    const modal = document.getElementById("create-card-pop-up");
+    modal.showModal();
+    console.log("shown");
+}
+
+function hidePopUp () {
+    const modal2 = document.getElementById("create-card-pop-up");
+    modal2.close();
+    console.log("hidden");
+}
 
 function addCardName() {
     const cardName = document.getElementById("pop-up-text").value;
 
     const tempObj = {
-        name: cardName,
-        items: [] 
+        name: cardName
     };
 
     taskList.push(tempObj);
-    console.log(cardName);
-    console.log(taskList);
     createCard();
-}
-
-function addItemName () {
-    const itemText = document.getElementById("item-text").value;
-
-    const itemObj = {
-        item: itemText
-    }
-
-    for (var i = 0; i < taskList.length; i++) {
-        for (var j = 0; j < taskList[i].items.length; j++) {
-            taskList[i].items.push(itemObj);
-        }
-    }
-
-    // taskList.items.push(itemObj);
-    console.log(itemText);
-    console.log(taskList);
-    createItem();
-}
-
-function createItem() {
-    // cardContentLeft.innerText = itemText.value;
-    const cardBodyTop = document.getElementsByClassName("card-body-top");
-    const realContent = document.createElement("div");
-    const cardContentLeft = document.createElement("div");
-    const cardContentRight = document.createElement("div");
-    const markDoneBtn = document.createElement("a");
-
-    realContent.setAttribute("class", "real-content");
-    cardContentLeft.setAttribute("class", "card-content-left");
-    cardContentRight.setAttribute("class", "card-content-right");
-    markDoneBtn.setAttribute("class", "mark-done-btn");
-
-    cardContentRight.appendChild(markDoneBtn);
-    realContent.appendChild(cardContentLeft);
-    realContent.appendChild(cardContentRight);
-
-    for (var i = 0; i < cardBodyTop.length; i++) {
-        cardBodyTop[i].appendChild(realContent);
-    }
-
-    // cardBodyTop.appendChild(realContent);
-
-    // const itemText = document.getElementById("item-text").value;
-
-    // const itemObj = {
-    //     item: itemText
-    // }
-
-
-    // for (var i = 0; i < taskList.length; i++) {
-    //         taskList[i].items.push(itemObj);
-    // }
-
-    // for (var i = 0; i < itemList.length; i++) {
-    //     cardContentLeft.innerText = itemList[i].item;
-    //  }
-
-
-
-    for (var i = 0; i < taskList.length; i++) {
-        for (var j = 0; j < taskList[i].items.length; j++) {
-            // taskList[i].items[j].push(itemObj);
-            // taskList[i].items[j].push(itemObj);
-            cardContentLeft.innerText = taskList[i].items[j].item;
-        }
-    }
 }
 
 
@@ -110,71 +50,76 @@ function createCard () {
     cardDeleteBtn.setAttribute("class", "card-delete-btn");
     cardTaskAddBtn.setAttribute("class", "card-task-add-btn");
 
+    cardDeleteBtn.innerText = "-";
+    cardTaskAddBtn.innerText = "+";
+
+    cardBottom2.appendChild(cardTaskAddBtn);
+    cardBottom1.appendChild(cardDeleteBtn);
+    cardBodyBottom.appendChild(cardBottom1);
+    cardBodyBottom.appendChild(cardBottom2);
+    cardBody.appendChild(cardBodyTop);
+    cardBody.appendChild(cardBodyBottom);
+    cardHead.appendChild(cardHeadContent);
+    newCard.appendChild(cardHead);
+    newCard.appendChild(cardBody);
+    newItem.appendChild(newCard);
+    list.appendChild(newItem);
 
     //////////////////////////////
     // For Name on top of the card
     for (var i = 0; i < taskList.length; i++) {
         cardHeadContent.innerText = taskList[i].name;
     }
-    // markDoneBtn.innerText = "Mark Done";
-    cardDeleteBtn.innerText = "-";
-    cardTaskAddBtn.innerText = "+";
 
-
-     ////////////////
-     // For Each Item
-    //  for (var i = 0; i < taskList.length; i++) {
-    //     cardContentLeft.innerText = taskList[i].items.item;
-    //  }
-
-
-    cardBottom2.appendChild(cardTaskAddBtn);
-    cardBottom1.appendChild(cardDeleteBtn);
-    cardBodyBottom.appendChild(cardBottom1);
-    cardBodyBottom.appendChild(cardBottom2);
-
-    // cardContentRight.appendChild(markDoneBtn);
-    // cardBodyTop.appendChild(cardContentLeft);
-    // cardBodyTop.appendChild(cardContentRight);
-
-    cardBody.appendChild(cardBodyTop);
-    cardBody.appendChild(cardBodyBottom);
-
-    cardHead.appendChild(cardHeadContent);
-
-    newCard.appendChild(cardHead);
-    newCard.appendChild(cardBody);
-    newItem.appendChild(newCard);
-    list.appendChild(newItem);
+    cardDeleteBtn.onclick = function deleteCard() {
+        newItem.remove();
+    }
 
 
     cardTaskAddBtn.onclick =  function createItemPopUp () {
         const modal = document.getElementById("create-item-pop-up");
         modal.showModal();
-        console.log("shown");
+        const itemText = document.getElementById("item-text");
+        const itemAddBtn = document.getElementById("item-add-btn");
+        const itemPopUpCloseBtn = document.getElementById("item-close-btn");
+
+
+        itemAddBtn.onclick = function createItem() {
+            const realContent = document.createElement("div");
+            const cardContentLeft = document.createElement("div");
+            const cardContentRight = document.createElement("div");
+            const markDoneBtn = document.createElement("a");
+        
+            realContent.setAttribute("class", "real-content");
+            cardContentLeft.setAttribute("class", "card-content-left");
+            cardContentRight.setAttribute("class", "card-content-right");
+            markDoneBtn.setAttribute("class", "mark-done-btn");
+            markDoneBtn.setAttribute("href", "#");
+        
+            cardContentLeft.innerText = itemText.value;
+            markDoneBtn.innerText = "Mark Done";
+        
+            cardContentRight.appendChild(markDoneBtn);
+            realContent.appendChild(cardContentLeft);
+            realContent.appendChild(cardContentRight);
+            cardBodyTop.appendChild(realContent);
+
+
+            markDoneBtn.onclick = function markDone() {
+                cardContentLeft.style.textDecorationLine = "line-through";
+                cardContentLeft.style.textDecorationColor = "tomato";
+            }
+        }
+
+        itemPopUpCloseBtn.onclick = function closeItemPopUp() {
+            modal.close();
+        }
     }
 }
 
 
 
 
-function showPopUp () {
-    const modal = document.getElementById("create-card-pop-up");
-    modal.showModal();
-    console.log("shown");
-}
-
-function hidePopUp () {
-    const modal2 = document.getElementById("create-card-pop-up");
-    modal2.close();
-    console.log("hidden");
-}
-
-function closeItemPopUp () {
-    const modal = document.getElementById("create-item-pop-up");
-    modal.close();
-    console.log("hidden");
-}
 
 
 
@@ -183,37 +128,7 @@ function closeItemPopUp () {
 
 
 
-    // var allItems = document.querySelectorAll("li");
-    // var tab = [];
-    // var index;
-
-    // for (var i = 0; i < allItems.length; i++) {
-    //     tab.push(allItems[i].innerHTML)
-    // }
-
-    // for (var i = 0; i < allItems.length; i++) {
-    //     allItems[i].onclick = function() {
-    //         // allItems.remove();
-
-    //         index = tab.indexOf(this);
-    //         console.log(index);
-    //         console.log(allItems);
-    //         // this.innerHTML.remove();
-    //     }
-    // }
-
-
-        // cardDeleteBtn.onclick = function deleteCard () {
-    //     // const newCard = document.getElementById("main-card");
-
-    //     // newCard.remove()
-    // }
-
-
-    // for (var i = 0; i <allItems.length; i++) {
-    //     tab.push(allItems[i].cardBodyTop)
-    //     console.log(allItems[i].cardBodyTop);
-    // }
+ 
 
 
 
