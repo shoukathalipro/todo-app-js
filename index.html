@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo-app-js</title>
+    <!-- External Style Sheet -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+</head>
+<body id="body1">
+    <div id="container-head">
+        <div id="container-head1">
+            <div id="container-head1-left">
+                <div id="head1-left1">Tasks</div>
+                <div id="head1-left2">List</div>
+            </div>
+            <div id="container-head1-right">
+                <div id="head1-right1"><a href="#" onclick=showPopUp()>+</a></div>
+                <div id="head1-right2">Add Item</div>
+            </div>
+        </div>
+        <div id="container-head2">hello</div>
+    </div>
+
+
+    <div id="container-body">
+        <ul id="list">
+            <li>
+                <div class="main-card">
+                    <div class="main-card-head">
+                        <div class="card-head-content">Trip to Paris</div>
+                    </div>
+                    <div class="main-card-body">
+                        <div class="card-body-top">
+                            <div class="real-content">
+                                <div class="card-content-left">Eating FrencH Fries</div>
+                                <div class="card-content-right"><a class="mark-done-btn" href="">mark done</a></div>
+                            </div>
+                        </div>
+                        <div class="card-body-bottom">
+                            <div class="card-bottom1"><a class="card-delete-btn" href="#" onclick=deleteCard()>-</a></div>
+                            <div class="card-bottom2"><a class="card-task-add-btn" href="#" onclick=createItemPopUp()>+</a></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <dialog id="create-card-pop-up">
+        <form id="pop-up-form" method="dialog">
+            <div id="pop-up-box-main">
+                <div id="pop-up-box-top">Add New List</div>
+                <div id="pop-up-box-middle">
+                    <input id="pop-up-text" type="text" name="pop-up-text" placeholder="Enter New List Name" value="">
+                </div>
+                <div id="pop-up-box-bottom">
+                    <div class="pop-up-common" id="pop-up-box-bottom1"><a href="#" class="pop-up-btn" id="pop-up-add-btn" onclick="addCardName()">Add</a></div>
+                    <div class="pop-up-common" id="pop-up-box-bottom2"><a href="#" class="pop-up-btn" id="pop-up-close-btn" onclick=hidePopUp()>Close</a></div>
+                </div>
+            </div>
+        </form>
+    </dialog>
+
+
+    <dialog id="create-item-pop-up">
+        <form id="item-form" method="dialog">
+            <div id="item-box-main">
+                <div id="item-box-top">Add New Item</div>
+                <div id="item-box-middle">
+                    <input id="item-text" type="text" name="item-text" placeholder="Enter New Item" value="">
+                </div>
+                <div id="item-box-bottom">
+                    <div class="pop-up-common" id="item-box-bottom1"><a href="#" class="pop-up-btn" id="item-add-btn" onclick=addItemName()>Add</a></div>
+                    <div class="pop-up-common" id="item-box-bottom2"><a href="#" class="pop-up-btn" id="item-close-btn" onclick=closeItemPopUp()>Close</a></div>
+                </div>
+            </div>
+        </form>
+    </dialog>
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
