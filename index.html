@@ -11,8 +11,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2cc7242f53.js" crossorigin="anonymous"></script>
 </head>
-<body id="body1">
+<body>
+    <!--This is Project - 5, that has been done for Elevation Academy.
+        This project consists of html,css as well as javascript and DOM.
+        In this project, the web page design in this address
+        <a href="https://prepbytes-misc-images.s3.ap-south-1.amazonaws.com/assets/1635161343122-About+to+do.mp4">todo-app-js</a>
+        has been tried to be replicated.
+    -->
+
+    <!-- Time taken to complete the project = Approx. 44 Hours -->
+
+    <!-- container-head contains 2 divs (i.e container-head1 & container-head2
+    container-head1 further contains 4 more divs 
+    -->
+
     <div id="container-head">
         <div id="container-head1">
             <div id="container-head1-left">
@@ -20,18 +35,28 @@
                 <div id="head1-left2">List</div>
             </div>
             <div id="hidden-left">
-                <div id="hidden-left1"><a href="#">></a></div>
+                <div id="hidden-left1"><a href="#"><i class="fas fa-chevron-circle-left fa-3x"></i></a></div>
                 <div id="hidden-left2">Back</div>
             </div>
             <div id="hidden-middle"></div>
             <div id="container-head1-right">
-                <div id="head1-right1"><a href="#" onclick=showPopUp()>+</a></div>
-                <div id="head1-right2">Add Item</div>
+                <div id="head1-right1"><a href="#" onclick=showPopUp()><i class="fas fa-plus-circle fa-3x"></i></a></div>
+                <div id="head1-right2">Add List</div>
             </div>
         </div>
         <div id="container-head2">No items in the todo list</div>
     </div>
 
+    <!-- container-body contains 2 unordered lists
+    The first one has the display property as "flex" by default &
+    the second one has the display property as "none" by default.
+    Newly created cards are appended inside "#list" and when the user clicks
+    on the card title, "#magic-list" gets the display property "flex" and
+    "#list" gets "none". After clicking on the card title, the contents
+    of "#magic-list" gets display to user which is a card which has the
+    exact structure and styling as the created cards and the inner contents
+    of the card, the title upon which we clicked on would be fetched and 
+    display in this card. -->
 
     <div id="container-body">
         <ul id="list"></ul>
@@ -44,8 +69,8 @@
                     <div class="main-card-body">
                         <div id="magic-card-content" class="card-body-top"></div>
                         <div class="card-body-bottom">
-                            <div class="card-bottom1"><a id="magic-delete-btn" class="card-delete-btn" href="#">-</a></div>
-                            <div class="card-bottom2"><a id="magic-add-btn" class="card-task-add-btn" href="#">+</a></div>
+                            <div class="card-bottom1"><a id="magic-delete-btn" class="card-delete-btn" href="#"><i class="fas fa-trash-alt fa-2x"></i></a></div>
+                            <div class="card-bottom2"><a id="magic-add-btn" class="card-task-add-btn" href="#"><i class="fas fa-plus-circle fa-2x"></i></a></div>
                         </div>
                     </div>
                 </div>
@@ -53,6 +78,8 @@
         </ul>
     </div>
 
+    <!-- This is the dialog that appears after clicking on the big red plus 
+    button. -->
 
     <dialog id="create-card-pop-up">
         <form id="pop-up-form" method="dialog">
@@ -69,6 +96,8 @@
         </form>
     </dialog>
 
+    <!-- This is the dialog that appears after clicking on the "plus" button
+    inside a newly created card. -->
 
     <dialog id="create-item-pop-up">
         <form id="item-form" method="dialog">
@@ -80,24 +109,6 @@
                 <div id="item-box-bottom">
                     <div class="pop-up-common" id="item-box-bottom1"><a href="#" class="pop-up-btn" id="item-add-btn" onclick=addItemName()>Add</a></div>
                     <div class="pop-up-common" id="item-box-bottom2"><a href="#" class="pop-up-btn" id="item-close-btn" onclick=closeItemPopUp()>Close</a></div>
-                </div>
-            </div>
-        </form>
-    </dialog>
-
-
-    <dialog id="magic-card">
-        <form id="magic-form" method="dialog">
-            <div class="main-card">
-                <div class="main-card-head">
-                    <div id="magic-card-title" class="card-head-content"></div>
-                </div>
-                <div class="main-card-body">
-                    <div id="magic-card-content" class="card-body-top"></div>
-                    <div class="card-body-bottom">
-                        <div class="card-bottom1"><a id="magic-delete-btn" class="card-delete-btn" href="#">-</a></div>
-                        <div class="card-bottom2"><a id="magic-add-btn" class="card-task-add-btn" href="#">+</a></div>
-                    </div>
                 </div>
             </div>
         </form>

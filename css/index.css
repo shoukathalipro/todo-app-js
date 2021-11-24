@@ -1,7 +1,12 @@
-#body1 {
+body {
   margin: 0;
-  background-color: darkgrey;
+  background-color: white;
 }
+
+/*//////////////////////////////////////
+/////////For Create Card Pop-up Dialog &
+///////////For Create Item Pop-up Dialog
+////////////////////////////////////////   */
 
 #create-card-pop-up {
   height: 30vh;
@@ -66,8 +71,6 @@
   font-weight: 400;
   font-size: 25px;
   color: #e74c3c;
-  /* text-align: center; */
-  /* margin: 30px auto; */
 }
 
 #item-box-top {
@@ -98,9 +101,6 @@
   border-radius: 5px;
   box-shadow: 4px 4px 7px 0px rgb(0 0 0 / 20%);
   text-align: center;
-  /* position: relative;
-  left: 50%;
-  transform: translateX(-50%); */
 }
 
 #item-text {
@@ -144,9 +144,12 @@
   text-decoration: none;
 }
 
+/*/ ////////////////////////
+/////////For Container Head
+///////////////////////////  */
+
 #container-head {
   box-sizing: border-box;
-  background-color: aqua;
   width: 90vw;
   margin-left: 50%;
   transform: translateX(-50%);
@@ -160,7 +163,6 @@
 
 #container-head1 {
   box-sizing: border-box;
-  background-color: blueviolet;
   padding: 2vh;
   display: flex;
   flex-direction: row;
@@ -169,7 +171,6 @@
 
 #container-head1-left {
   box-sizing: border-box;
-  background-color: burlywood;
   padding: 1vw;
   display: flex;
   flex-direction: row;
@@ -178,16 +179,32 @@
   justify-content: space-between;
 }
 
+#head1-left1 {
+  font-size: 60px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #342c2c;
+}
+
+#head1-left2 {
+  font-size: 60px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  color: #707070;
+}
+
 #hidden-middle {
   box-sizing: border-box;
-  background-color: burlywood;
   padding: 1vw;
   display: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #342c2c;
+  font-size: 60px;
 }
 
 #container-head1-right {
   box-sizing: border-box;
-  background-color: coral;
   padding: 1vw;
   display: flex;
   flex-direction: row;
@@ -196,20 +213,35 @@
   justify-content: space-between;
 }
 
+#head1-right2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  color: #707070;
+}
+
 #hidden-left {
   box-sizing: border-box;
-  background-color: coral;
   padding: 1vw;
   display: none;
-  /* flex-direction: row;
-  gap: 3vw;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between; */
+  gap: 1vw;
+}
+
+#hidden-left2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #707070;
 }
 
 #container-head2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  color: #707070;
   box-sizing: border-box;
-  background-color: brown;
   padding: 2vh;
   display: flex;
   flex-direction: row;
@@ -217,19 +249,16 @@
   align-items: center;
 }
 
+/*/////////////////////////////////////////////
+//////////For Container Body, List & Magic List
+///////////////////////////////////////////////  */
+
 #container-body {
   box-sizing: border-box;
-  background-color: rgb(0, 255, 0);
   width: 90vw;
   margin-left: 50%;
   transform: translateX(-50%);
   padding: 2vh;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5vh; */
 }
 
 #list {
@@ -251,36 +280,40 @@
   display: none;
   flex-direction: row;
   list-style-type: none;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 5vh;
 }
 
 .main-card {
   box-sizing: border-box;
-  background-color: darkorchid;
   height: 45vh;
   width: 20vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1vh;
+  border: #e74c3c solid 1px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 0px rgb(0 0 0 / 20%);
 }
 
 .main-card-head {
   box-sizing: border-box;
-  background-color: darkturquoise;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding-bottom: 1vh;
-  border-bottom: 1px black solid;
+  border-bottom: #d2d2d2 2px groove;
 }
 
 .card-head-content {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 25px;
+  color: #e74c3c;
   box-sizing: border-box;
-  background-color: darkorange;
   height: 5vh;
   display: flex;
   flex-direction: column;
@@ -290,7 +323,6 @@
 
 .main-card-body {
   box-sizing: border-box;
-  background-color: beige;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -300,7 +332,6 @@
 
 .card-body-top {
   box-sizing: border-box;
-  background-color: cyan;
   height: 27vh;
   display: flex;
   flex-direction: row;
@@ -309,6 +340,7 @@
   flex-wrap: wrap;
   overflow-y: auto;
   gap: 1vw;
+  padding: 1vh;
 }
 
 .real-content {
@@ -323,11 +355,53 @@
 
 .card-body-bottom {
   box-sizing: border-box;
-  background-color: gold;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   gap: 2vw;
   padding: 1vh;
+}
+
+/*///////////////////////////////////////////////////////
+///////For the newly created card's non-existing elements
+///////////////////////////////////////////////////////// */
+
+.card-content-left {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  color: #342c2c;
+}
+
+.card-content-right {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.mark-done-btn {
+  text-decoration: none;
+  color: white;
+  background-color: #3c3ce5;
+  border-radius: 20px;
+  padding: 1vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+/*/ ///////////////////////////
+///////////////For Font Awesome
+/////////////////////////////// */
+
+.fa-plus-circle {
+  color: #ff1900;
+}
+
+.fa-trash-alt {
+  color: black;
+}
+
+.fa-chevron-circle-left {
+  color: #ff1900;
 }
