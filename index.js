@@ -332,9 +332,16 @@ function createCard () {
 
 
             markDoneBtn.onclick = function markDone() {
-                cardContentLeft.style.textDecorationLine = "line-through";
-                cardContentLeft.style.textDecorationColor = "#ff0000";
-                cardContentLeft.style.textDecorationThickness = "3px";
+                if (markDoneBtn.innerText == "Mark Done") {
+                    cardContentLeft.style.textDecorationLine = "line-through";
+                    cardContentLeft.style.textDecorationColor = "#ff0000";
+                    cardContentLeft.style.textDecorationThickness = "3px";
+                    markDoneBtn.innerText = "Mark Undone";    
+                }
+                else if (markDoneBtn.innerText == "Mark Undone") {
+                    cardContentLeft.style.textDecoration = "none";
+                    markDoneBtn.innerText = "Mark Done"; 
+                }
             }
         }
 
